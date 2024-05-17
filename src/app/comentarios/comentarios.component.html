@@ -1,0 +1,35 @@
+
+
+<!--Formulario que recoge los comentarios-->
+<form #formComentario = "ngForm" (ngSubmit)="onSubmit()">
+
+    <label for="nombre">Nombre</label><br>
+    <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="this.comentario.nombre"><br>
+
+    <label for="nombre">Valoración</label><br>
+    <input type="number" min="0" max="10" name="valoracion" #valoracion="ngModel" [(ngModel)]="this.comentario.valoracion"><br>
+
+    <label for="nombre">Mensaje</label><br>
+    <textarea name="textarea" #mensaje="ngModel" [(ngModel)]="this.comentario.mensaje" rows="4" cols="50"> </textarea><br>
+
+    <input type="submit" value="Enviar"><br>
+
+    <div>
+    <ul>
+        <!--Para el array de comentarios (no implementado)-->
+        <li *ngFor = "let a of arrayComent">
+            <p>{{a.nombre}} {{a.fecha}}  {{a.cancion}}</p>
+            <p> Nota: {{a.valoracion}}</p>
+            <p>{{a.mensaje}}</p>
+        </li>
+
+        <li *ngIf=haClickado>
+            <p>{{comentario.nombre}} {{comentario.fecha}}  {{comentario.cancion}}</p>
+            <p> Nota: {{comentario.valoracion}}</p>
+            <p>{{comentario.mensaje}}</p>
+        </li>
+    </ul>
+    </div>
+
+</form>
+
